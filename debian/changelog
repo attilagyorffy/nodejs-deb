@@ -1,0 +1,200 @@
+nodejs (0.2.6-4ubuntu1) natty; urgency=low
+
+  * debian/patches/2007_remove_internet_test.patch:
+    - Remove test which requires internet connection
+
+ -- Angel Abad <angelabad@ubuntu.com>  Tue, 22 Feb 2011 17:00:49 +0100
+
+nodejs (0.2.6-4build1) natty; urgency=low
+
+  * No-change rebuild against libv8-2.5.9.9
+
+ -- Angel Abad <angelabad@ubuntu.com>  Tue, 22 Feb 2011 09:34:28 +0100
+
+nodejs (0.2.6-4) unstable; urgency=low
+
+  [ Jérémy Lal ]
+  * Disable simple/test-buffer Buffer.unpack test that fails on ARM.
+    The pack/unpack functions are deprecated, and not documented.
+
+  [ Jonas Smedegaard ]
+  * Drop done items from TODO.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Mon, 07 Feb 2011 23:39:40 +0100
+
+nodejs (0.2.6-3) experimental; urgency=low
+
+  [ Jérémy Lal ]
+  * Disable simple/test-dgram-multicast test that fails on sbuild.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Tue, 25 Jan 2011 23:53:05 +0100
+
+nodejs (0.2.6-2) experimental; urgency=low
+
+  [ Jérémy Lal ]
+  * Build-depends on libv8-2.5.9.9-2.
+    (Closes: #610527, #607319, #605447, #597784)
+  * Refactor patches, DEP-3 format.
+  * Explain modules search paths in README.Debian.
+
+  [ Jonas Smedegaard ]
+  * Relax nodejs-dbg suggestion on libv8-dbg to be unversioned: already
+    handled by library packages.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Tue, 25 Jan 2011 22:11:05 +0100
+
+nodejs (0.2.6-1) experimental; urgency=low
+
+  [ Jérémy Lal ]
+  * New upstream release.
+  * nodejs is an alternative to js. (Closes: #597572)
+  * Use upstream binary names for node and node-waf,
+    conflicts with node package. (Closes: #597571)
+  * Global modules search paths :
+    /usr/local/lib/nodejs
+    /usr/lib/nodejs
+    Custom paths can be set through NODE_PATH.
+    The reason is to support future npm package, giving higher
+    priority to modules installed by npm as root.
+  * Repackage using CDBS.  Enable regression testing.
+  * Add a note about importing upstream tarball in README.source.
+  * Update TODO
+
+  [ Jonas Smedegaard ]
+  * Add myself as uploader.
+  * Limit watch file to stable releases.
+  * Enable CDBS build-dependency autoresolving.
+  * Tighten build-dependency on cdbs to versions properly supporting
+    debhelper compat level 7.
+  * Tighten build-dependency on debhelper to versions fully supporting
+    compat level 7.
+  * Build-depend on dh-buildinfo to include buildinfo hints with binary
+    packages for easier troubleshooting.
+  * Build-depend on curl: Needed for regression tests (testing on
+    loopback, so should be Policy compliant).
+  * Newline-delimit package relations for improved readability.
+  * Add patch 2001 to skip TTY-needing regression test.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Fri, 21 Jan 2011 21:00:24 +0100
+
+nodejs (0.2.2-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Jérémy Lal <kapouer@melix.org>  Fri, 17 Sep 2010 21:27:40 +0200
+
+nodejs (0.2.0-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Jérémy Lal <kapouer@melix.org>  Fri, 20 Aug 2010 11:49:04 +0200
+
+nodejs (0.1.104-1) unstable; urgency=low
+
+  * New upstream release. (Closes: #593088)
+
+ -- Jérémy Lal <kapouer@melix.org>  Mon, 16 Aug 2010 07:07:09 +0200
+
+nodejs (0.1.102-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Jérémy Lal <kapouer@melix.org>  Tue, 27 Jul 2010 08:29:40 +0200
+
+nodejs (0.1.101-2) unstable; urgency=low
+
+  * Build-Depends on bash-completion for dh_bash-completion 
+
+ -- Jérémy Lal <kapouer@melix.org>  Wed, 21 Jul 2010 08:58:52 +0200
+
+nodejs (0.1.101-1) unstable; urgency=low
+
+  * New upstream release
+  * Standards-Version 3.9.0
+  * Move BSD license in debian/copyright
+  * nodejs-waf now accepts NODE_PATH environment variable, which defines
+    where to install compiled modules. Defaults to ~/.node_libraries.
+  * nodejs-waf bash-completion snippet
+  * API Manual registered with doc-base.
+  * Depends on libv8-2.2.24
+
+ -- Jérémy Lal <kapouer@melix.org>  Wed, 14 Jul 2010 13:52:07 +0200
+
+nodejs (0.1.99-1) unstable; urgency=low
+
+  * New upstream release
+  * DNS module : MX support since c-ares 1.7.3
+  * nodejs-repl is replaced by invoking nodejs without file argument,
+    rlwrap is no more needed.
+  * Full upstream author name in debian/copyright.
+
+ -- Jérémy Lal <kapouer@melix.org>  Tue, 29 Jun 2010 08:25:13 +0200
+
+nodejs (0.1.97-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Jérémy Lal <kapouer@melix.org>  Sun, 30 May 2010 23:14:24 +0200
+
+nodejs (0.1.95-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Jérémy Lal <kapouer@melix.org>  Fri, 14 May 2010 02:05:25 +0200
+
+nodejs (0.1.94-2) unstable; urgency=low
+
+  * Drop dependencies on libgnutls-dev, libgpg-error-dev.
+  * Modules path moved to /usr/lib/nodejs (without /modules), to
+    follow more closely upstream practice.
+  * node-repl is now in /usr/share/nodejs because it is
+    simply a js script file ; nodejs-repl still in /usr/bin
+
+ -- Jérémy Lal <kapouer@melix.org>  Tue, 11 May 2010 19:52:12 +0200
+
+nodejs (0.1.94-1) unstable; urgency=low
+
+  * New upstream release
+  * API has changed and will be more stable with 0.2 release
+  * Fix dependency on libv8. (Closes: #579044)
+  * Switched from gnutls to libssl.
+
+ -- Jérémy Lal <kapouer@melix.org>  Thu, 06 May 2010 23:19:12 +0200
+
+nodejs (0.1.92-1) unstable; urgency=low
+
+  * New upstream release
+  * Switch from udns to c-ares.
+
+ -- Jérémy Lal <kapouer@melix.org>  Sat, 24 Apr 2010 09:12:06 +0200
+
+nodejs (0.1.33-3) unstable; urgency=low
+
+  * Fix wrong use of binary-indep target in debian/rules.
+    (Closes: #575383) 
+
+ -- Jérémy Lal <kapouer@melix.org>  Mon, 05 Apr 2010 15:26:40 +0200
+
+nodejs (0.1.33-2) unstable; urgency=low
+
+  * Previous package was broken in some way. (Closes: #575383)
+
+ -- Jérémy Lal <kapouer@melix.org>  Thu, 25 Mar 2010 12:24:06 +0100
+
+nodejs (0.1.33-1) unstable; urgency=low
+
+  * New upstream release. (Closes: #572023)
+  * Debian package has the same license as upstream (MIT).
+  * Include waf in source package and nodejs-dev package. (Closes: #571710)
+  * Switch to dpkg-source 3.0 (quilt) format.
+  * Place modules directory in usr/lib/nodejs/modules,
+    and add it to nodejs module path. Documentation in README.Debian.
+  * Architecture: any since the supported archs depends only on libv8.
+
+ -- Jérémy Lal <kapouer@melix.org>  Mon, 22 Mar 2010 01:53:48 +0100
+
+nodejs (0.1.27+dfsg-1) unstable; urgency=low
+
+  * Initial release (Closes: #553514)
+
+ -- Jérémy Lal <kapouer@melix.org>  Sun, 07 Feb 2010 01:16:07 +0100
